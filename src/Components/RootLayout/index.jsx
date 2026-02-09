@@ -2,10 +2,10 @@ import Header from "../Header";
 
 const RootLayout = ({ children }) => {
   return (
-    <>
-      <Header onDeskClick={() => setDesk(true)} />
+    <div>
+      <Header />
       <main className="flex items-center justify-center">{children}</main>
-    </>
+    </div>
   );
 };
 

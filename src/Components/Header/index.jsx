@@ -3,7 +3,7 @@ import Logo from "../../assets/Logo.png";
 
 const Header = () => {
   return (
-    <section className="header flex w-screen items-center justify-between p-(--spacing-250)">
+    <header className="header flex w-screen items-center justify-between p-(--spacing-250)">
       <div className="headerContent flex items-center justify-center gap-(--spacing-125)">
         <img src={Logo} alt="Logo" />
         <h1 className="font-bold text-(--spacing-200)">Flashcards</h1>
@@ -14,7 +14,7 @@ const Header = () => {
           + New Deck
         </Button>
       </div>
-    </section>
+    </header>
   );
 };
 
