@@ -1,7 +1,10 @@
 import Button from "../Button";
 import Logo from "../../assets/Logo.png";
+import { useDeskStore } from "../store";
 
 const Header = () => {
+  const isOpen = useDeskStore((state) => state.openModal);
+
   return (
     <header className="header flex w-screen items-center justify-between p-(--spacing-250)">
       <div className="headerContent flex items-center justify-center gap-(--spacing-125)">
@@ -10,7 +13,7 @@ const Header = () => {
       </div>
 
       <div>
-        <Button type="button" variant="primary">
+        <Button type="button" variant="primary" onClick={isOpen}>
           + New Deck
         </Button>
       </div>

@@ -4,7 +4,7 @@ const RootLayout = ({ children }) => {
   return (
     <div>
       <Header />
-      <main className="flex items-center justify-center">{children}</main>
+      <main className="flex justify-center">{children}</main>
     </div>
   );
 };
