@@ -1,9 +1,9 @@
 import Header from "../Header";
 
-const RootLayout = ({ children, isOpenDesk }) => {
+const RootLayout = ({ children }) => {
   return (
     <div>
-      <Header isDaskOpen={isOpenDesk} />
+      <Header />
       <main className="flex justify-center">{children}</main>
     </div>
   );

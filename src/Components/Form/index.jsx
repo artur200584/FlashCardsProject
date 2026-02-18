@@ -1,12 +1,15 @@
 import { useState } from "react";
 import Button from "../Button";
+import Inputs from "../Inputs";
 import EmojiPicker from "emoji-picker-react";
 import clsx from "clsx";
+import { useDeskStore } from "../store";
 
-const Form = ({ onAddDesk }) => {
+const Form = () => {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
   const [emoji, setEmoji] = useState("");
+  const onAddDesk = useDeskStore((state) => state.addDesk);
 
   const handleEmojiClick = (emojiData) => {
     setEmoji(emojiData.emoji);
@@ -25,7 +28,7 @@ const Form = ({ onAddDesk }) => {
       return;
     }
 
-    onAddDesk(inputValue, emoji);
+    onAddDesk(value, emoji);
     setInputValue("");
     setEmoji("");
   }
@@ -37,7 +40,8 @@ const Form = ({ onAddDesk }) => {
         action="/"
         onSubmit={handleSubmit}
       >
-        <div className="flex">
+        <Inputs value={inputValue} onChange={handleNameChange} error={error} />
+        {/* <div className="flex">
           <label className="mr-2.5 text-[20px] font-bold" htmlFor="deckName">
             Deck Name
           </label>
@@ -53,7 +57,7 @@ const Form = ({ onAddDesk }) => {
             value={inputValue}
             onChange={handleNameChange}
           />
-        </div>
+        </div> */}
 
         <div>
           <p className="text-[20px] font-bold">Виреріть Emodji для колоди</p>
