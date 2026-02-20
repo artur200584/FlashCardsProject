@@ -1,15 +1,17 @@
-import { useState } from "react";
 import Button from "../Button";
 import Inputs from "../Inputs";
 import EmojiPicker from "emoji-picker-react";
-import clsx from "clsx";
-import { useDeskStore } from "../store";
+import { useDeskStore, useFormStore } from "../store";
 
 const Form = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [error, setError] = useState("");
-  const [emoji, setEmoji] = useState("");
+  const setInputValue = useFormStore((state) => state.setInputValue);
+  const inputValue = useFormStore((state) => state.inputValue);
+  const error = useFormStore((state) => state.error);
+  const setError = useFormStore((state) => state.setError);
+  const emoji = useFormStore((state) => state.emoji);
+  const setEmoji = useFormStore((state) => state.setEmoji);
   const onAddDesk = useDeskStore((state) => state.addDesk);
+  const resetForm = useFormStore((state) => state.resetForm);
 
   const handleEmojiClick = (emojiData) => {
     setEmoji(emojiData.emoji);
@@ -29,37 +31,25 @@ const Form = () => {
     }
 
     onAddDesk(value, emoji);
-    setInputValue("");
-    setEmoji("");
+    resetForm();
   }
 
   return (
     <section className="form">
       <form
-        className="flex items-center gap-[10px] flex-wrap w-[60%] mx-auto"
+        className="flex items-center overflow-hidden gap-[10px] flex-wrap  mx-auto"
         action="/"
         onSubmit={handleSubmit}
       >
-        <Inputs value={inputValue} onChange={handleNameChange} error={error} />
-        {/* <div className="flex">
-          <label className="mr-2.5 text-[20px] font-bold" htmlFor="deckName">
-            Deck Name
-          </label>
-          <input
-            className={clsx(
-              "border border-gray-300 px-3",
-              error && "border-red-500"
-            )}
-            type="text"
-            id="deckName"
-            name="deckName"
-            placeholder={!error ? "Enter deck name" : error}
-            value={inputValue}
-            onChange={handleNameChange}
-          />
-        </div> */}
+        <Inputs
+          label="Desk Name"
+          palsholder="Вуудіть назву колоди"
+          value={inputValue}
+          onChange={handleNameChange}
+          error={error}
+        />
 
-        <div>
+        <div className="flex flex-col justify-center items-center w-full">
           <p className="text-[20px] font-bold">Виреріть Emodji для колоди</p>
           <EmojiPicker onEmojiClick={handleEmojiClick} />
 

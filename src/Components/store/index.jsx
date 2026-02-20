@@ -28,9 +28,42 @@ export const useDeskStore = create((set) => ({
     }),
 }));
 
+export const useFormStore = create((set) => ({
+  inputValue: "",
+  error: "",
+  emoji: "",
+
+  setInputValue: (value) => set({ inputValue: value }),
+  setError: (message) => set({ error: message }),
+  setEmoji: (emoji) => set({ emoji }),
+
+  resetForm: () =>
+    set({
+      inputValue: "",
+      error: "",
+      emoji: "",
+    }),
+}));
+
 export const useOpenStudyDesk = create((set) => ({
   isOpenModal: false,
+  activeDeskId: null,
 
-  openStudyDesk: () => set({ isOpenModal: true }),
-  closeStudyDesk: () => set({ isOpenModal: false }),
+  openStudyDesk: (id) => set({ isOpenModal: true, activeDeskId: id }),
+  closeStudyDesk: () => set({ isOpenModal: false, activeDeskId: null }),
+}));
+
+export const useOpenCard = create((set) => ({
+  isOpenCard: false,
+
+  openCard: () => set({ isOpenCard: true }),
+  clouseCard: () => set({ isOpenCard: false }),
+}));
+
+export const useFormcCard = create((set) => ({
+  inputQuestion: "",
+  inputAnswer: "",
+
+  setInputQuestion: (val) => set({ inputQuestion: val }),
+  setInputAnswer: (val) => set({ inputAnswer: val }),
 }));
