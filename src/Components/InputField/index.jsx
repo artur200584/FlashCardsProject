@@ -1,10 +1,10 @@
 import clsx from "clsx";
 
-const Inputs = ({ value, onChange, error }) => {
+const Inputs = ({ value, onChange, error, label, palsholder, children }) => {
   return (
-    <div className="flex">
+    <div className="flex flex-col w-full justify-center items-center">
       <label className="mr-2.5 text-[20px] font-bold" htmlFor="deckName">
-        Deck Name
+        {label}
       </label>
       <input
         className={clsx(
@@ -14,10 +14,11 @@ const Inputs = ({ value, onChange, error }) => {
         type="text"
         id="deckName"
         name="deckName"
-        placeholder={!error ? "Enter deck name" : error}
+        placeholder={!error ? palsholder : error}
         value={value}
         onChange={onChange}
       />
+      {children}
     </div>
   );
 };

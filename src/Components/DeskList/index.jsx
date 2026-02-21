@@ -1,6 +1,6 @@
 import Button from "../Button";
-import { useDeskStore } from "../store";
-import { useOpenStudyDesk } from "../store";
+import { useDeskStore } from "../store/DeskStore";
+import { useOpenStudyDesk } from "../store/StudyStore";
 import book from "../../assets/book.png";
 
 const DeskList = () => {
@@ -9,11 +9,11 @@ const DeskList = () => {
   const isOpenStudyDesk = useOpenStudyDesk((state) => state.openStudyDesk);
 
   return (
-    <section className="deskList flex gap-[20px] p-[20px]">
+    <section className="deskList flex w-full gap-[20px] p-[20px] mb-[50px] items-center m-auto">
       <div className="flex w-screen flex-wrap gap-[10px] justify-center items-center">
         {desks.map((item) => {
           return (
-            <div className="flex w-[400px] h-[500px] bg-[var(--new-color)] rounded-md p-[10px]">
+            <div className="flex w-[400px] h-[500px] bg-[var(--color-new)] rounded-md p-[10px]">
               <div className="flex flex-col justify-center  w-full h-full gap-[5px]">
                 <div className="flex items-center gap-[5px]">
                   <p>{item.emoji}</p>
@@ -23,7 +23,7 @@ const DeskList = () => {
                   <Button
                     variant="button"
                     className="w-[48%]"
-                    onClick={isOpenStudyDesk}
+                    onClick={() => isOpenStudyDesk(item.id)}
                   >
                     <img className="mr-[5px]" src={book} alt="image" />
                     Study Mode

@@ -1,46 +1,45 @@
 @import "tailwindcss";
 
+/* ===== THEME TOKENS ===== */
 @theme {
-  --bg-primary: #0f172a;
-  --text-primary: #f8fafc;
-  --bg-secondary: #1e293b;
-  --text-muted: #94a3b8;
-  --accent: #6366f1;
-  --learning-color: #f59e0b;
-  --new-color: #3b82f6;
-  --mastered-color: #10b981;
-  --hard-color: #f97316;
-  --again-color: #ef4444;
-  --easy-color: #3b82f6;
-  --good-color: #22c55e;
-  --button-color: #f8cb46;
+  /* COLORS */
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-text-primary: #f8fafc;
+  --color-text-muted: #94a3b8;
+  --color-accent: #6366f1;
 
+  --color-learning: #f59e0b;
+  --color-new: #3b82f6;
+  --color-mastered: #10b981;
+  --color-hard: #f97316;
+  --color-again: #ef4444;
+  --color-easy: #3b82f6;
+  --color-good: #22c55e;
+  --color-button: #f8cb46;
+
+  /* SPACING */
   --spacing-0: 0px;
-
   --spacing-25: 2px;
   --spacing-50: 4px;
   --spacing-75: 6px;
-
   --spacing-100: 8px;
   --spacing-125: 10px;
   --spacing-150: 12px;
-
   --spacing-200: 16px;
   --spacing-250: 20px;
   --spacing-300: 24px;
-
   --spacing-400: 32px;
   --spacing-500: 40px;
   --spacing-600: 48px;
-
   --spacing-800: 64px;
   --spacing-1000: 80px;
   --spacing-1200: 96px;
-
   --spacing-1400: 112px;
   --spacing-1600: 128px;
   --spacing-1800: 140px;
 
+  /* RADIUS */
   --radius-0: 0;
   --radius-4: 4px;
   --radius-6: 6px;
@@ -53,12 +52,16 @@
   --radius-full: 999px;
 }
 
+/* ===== GLOBAL BASE ===== */
 :root {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  @apply bg-bg-primary text-text-primary;
+}
+
+/* ===== EMOJI PICKER FIX ===== */
 .EmojiPickerReact {
-  --epr-emoji-size: 20px; /* Менші емодзі */
+  --epr-emoji-size: 20px;
 }
