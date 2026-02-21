@@ -2,7 +2,8 @@ import RootLayout from "./Components/RootLayout";
 import Modal from "./Components/Modal";
 import DeckList from "./Components/DeskList";
 import ModalStudy from "./Components/ModalStudy";
-import { useDeskStore, useOpenStudyDesk } from "./Components/store";
+import { useDeskStore } from "./Components/store/DeskStore";
+import { useOpenStudyDesk } from "./Components/store/StudyStore";
 
 function App() {
   const isOpen = useDeskStore((state) => state.isOpen);

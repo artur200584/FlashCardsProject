@@ -1,13 +1,13 @@
-import Inputs from "../Inputs";
-import { useFormStore, useFormcCard } from "../store";
+import Inputs from "../InputField";
+// import { useFormStore, useFormcCard } from "../store/DeskStore";
+import { useFormStore } from "../store/FormStore";
+import { useFormcCard } from "../store/FormCardStore";
 import clsx from "clsx";
 import Button from "../Button";
 
 const Card = () => {
   const error = useFormStore((state) => state.error);
   const setError = useFormStore((state) => state.setError);
-  const setInputValue = useFormStore((state) => state.setInputValue);
-  const inputValue = useFormStore((state) => state.inputValue);
 
   const inputQuestion = useFormcCard((state) => state.inputQuestion);
   const setInputQuestion = useFormcCard((state) => state.setInputQuestion);

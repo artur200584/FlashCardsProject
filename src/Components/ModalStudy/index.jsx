@@ -1,6 +1,8 @@
 import Button from "../Button";
 import Card from "../Card";
-import { useOpenStudyDesk, useDeskStore, useOpenCard } from "../store";
+import { useOpenStudyDesk } from "../store/StudyStore";
+import { useDeskStore } from "../store/DeskStore";
+import { useOpenCard } from "../store/StudyStore";
 import box from "../../assets/box.png";
 
 const ModalStudy = () => {

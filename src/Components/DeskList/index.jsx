@@ -1,6 +1,6 @@
 import Button from "../Button";
-import { useDeskStore } from "../store";
-import { useOpenStudyDesk } from "../store";
+import { useDeskStore } from "../store/DeskStore";
+import { useOpenStudyDesk } from "../store/StudyStore";
 import book from "../../assets/book.png";
 
 const DeskList = () => {
@@ -9,7 +9,7 @@ const DeskList = () => {
   const isOpenStudyDesk = useOpenStudyDesk((state) => state.openStudyDesk);
 
   return (
-    <section className="deskList flex gap-[20px] p-[20px] mb-[50px] items-center m-auto">
+    <section className="deskList flex w-full gap-[20px] p-[20px] mb-[50px] items-center m-auto">
       <div className="flex w-screen flex-wrap gap-[10px] justify-center items-center">
         {desks.map((item) => {
           return (

@@ -1,7 +1,8 @@
 import Button from "../Button";
-import Inputs from "../Inputs";
+import Inputs from "../InputField";
 import EmojiPicker from "emoji-picker-react";
-import { useDeskStore, useFormStore } from "../store";
+import { useDeskStore } from "../store/DeskStore";
+import { useFormStore } from "../store/FormStore";
 
 const Form = () => {
   const setInputValue = useFormStore((state) => state.setInputValue);
